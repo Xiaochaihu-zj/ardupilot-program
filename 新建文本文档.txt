@@ -1,0 +1,19 @@
+MTI数据接收解码 发送地面站
+运行400HZ  在scheduler设置延时2ms
+六个舵机运动趋势正确
+读入了GPS数据 但是基本没有修改GPS库程序
+get_position get_location 经纬度就是GPS经纬度 get_location高度就是GPS高度 get_origin 等于0
+增加了三个地面站参数  总距差动系数：COL_DIFF_VALUE      cos(60)
+                      纵向周期变距：LON_SYN_VALUE       cos(30)
+                      纵向周期边距差动：LON_DIFF_VALUE  cos(70)
+
+增加了倾转舵机的输出 CH_11，CH_7控制
+倾转舵机的输出大小由地面站参数控制：TILT_HIGH（1930）和TILT_LOW（1320），tilt_servo为RSC的对象
+舵机数为11.
+在ekf 中增加了坐标转换 bf_to_ef  
+getPosNED的返回值为当前位置与origin位置的NED距离，getVelNED返回NED坐标系下的速度   getLLH返回值为当前的经纬高
+去掉了一些compass的警告，使compass health强制为true 
+ahrs_navekf中 using ekf 为true
+地面站的compass_offset全部为11
+在GCS_MAVLINK中去掉了加速度计校准
+在ArduCopter中删除一些测试的小程序

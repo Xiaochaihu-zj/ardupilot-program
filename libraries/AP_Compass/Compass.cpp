@@ -527,6 +527,9 @@ Compass::calculate_heading(const Matrix3f &dcm_matrix) const
 ///
 bool Compass::configured(uint8_t i)
 {
+    //edit by huhui
+    return true;
+#if 0
     // exit immediately if instance is beyond the number of compasses we have available
     if (i > get_count()) {
         return false;
@@ -552,7 +555,7 @@ bool Compass::configured(uint8_t i)
         return false;
     }
 #endif
-
+#endif
     // if we got here then it must be configured
     return true;
 }

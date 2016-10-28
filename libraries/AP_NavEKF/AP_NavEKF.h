@@ -275,15 +275,13 @@ public:
 	
 	//edit by huhui
 	
-	void set_mti_velocity(Vector3f mti_velocity){mti_velocity_m_bf=mti_velocity;}
+	void set_mti_velocity(Vector3f mti_velocity){mti_velocity_m=mti_velocity;}
 	void set_mti_altitude(float mti_alt_m){mti_altitude=mti_alt_m;}
 	void convert_frame_bf_to_ef(Vector3f &body_frame,Vector3f &earth_frame);
 	void  get_mti_accel_ef(Vector3f &mti_accel_ef);
-	void set_mti_vel_ef();
 	
 	//edit by huhui
-	Vector3f mti_velocity_m_bf;
-	Vector3f mti_velocity_m_ef;
+	Vector3f mti_velocity_m;
 	float   mti_altitude;
 	Location mti_position;
 	void setOrigin();

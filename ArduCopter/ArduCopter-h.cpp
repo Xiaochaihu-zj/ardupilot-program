@@ -867,9 +867,8 @@ void Copter::mtig_MessageReceived(int id, unsigned char* mtig_data, unsigned cha
 		    MTI_ins.MTI_Velocity.x=fchar[m++];
 		    MTI_ins.MTI_Velocity.y=-fchar[m++];
 		    MTI_ins.MTI_Velocity.z=-fchar[m++];
-			
+			//NED velocity
 			ahrs.get_NavEKF().set_mti_velocity(MTI_ins.MTI_Velocity);
-			ahrs.get_NavEKF().set_mti_vel_ef();
 			//mti_serial->printf(PSTR("velocity.x=%f  velocity.y=%f velocity.z=%f\n"),MTI_ins.MTI_Velocity.x,MTI_ins.MTI_Velocity.y,MTI_ins.MTI_Velocity.z);
 		break;
 			

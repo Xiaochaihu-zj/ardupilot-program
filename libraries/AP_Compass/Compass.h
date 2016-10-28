@@ -37,8 +37,8 @@
    than 1 then redundent sensors may be available
  */
 #if HAL_CPU_CLASS > HAL_CPU_CLASS_16
-#define COMPASS_MAX_INSTANCES 3//edit by huhui  3
-#define COMPASS_MAX_BACKEND   3 //3
+#define COMPASS_MAX_INSTANCES 1 //edit by huhui  3
+#define COMPASS_MAX_BACKEND   1 //3
 #else
 #define COMPASS_MAX_INSTANCES 1
 #define COMPASS_MAX_BACKEND   1   
@@ -108,6 +108,7 @@ public:
 
     /// Return the current field as a Vector3f
     const Vector3f &get_field(uint8_t i) const { return _state[i].field; }
+
     const Vector3f &get_field(void) const { return get_field(get_primary()); }
 
     // check if the compasses are pointing in the same direction

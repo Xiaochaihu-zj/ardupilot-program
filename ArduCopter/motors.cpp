@@ -287,6 +287,8 @@ bool Copter::pre_arm_checks(bool display_failure)
     }
 
     // check Compass
+	//edit by huhui 
+#if 0
     if ((g.arming_check == ARMING_CHECK_ALL) || (g.arming_check & ARMING_CHECK_COMPASS)) {
         // check the primary compass is healthy
         if(!compass.healthy()) {
@@ -307,9 +309,8 @@ bool Copter::pre_arm_checks(bool display_failure)
         // check for unreasonable compass offsets
         Vector3f offsets = compass.get_offsets();
         if(offsets.length() > COMPASS_OFFSETS_MAX) {
-            if (display_failure) {
-				//edit by huhui 
-                //gcs_send_text_P(SEVERITY_HIGH,PSTR("PreArm: Compass offsets too high"));
+            if (display_failure) { 
+                gcs_send_text_P(SEVERITY_HIGH,PSTR("PreArm: Compass offsets too high"));
             }
             return false;
         }
@@ -332,6 +333,7 @@ bool Copter::pre_arm_checks(bool display_failure)
                 }
 
     }
+#endif
 
     // check GPS
     if (!pre_arm_gps_checks(display_failure)) {
@@ -610,8 +612,7 @@ bool Copter::pre_arm_gps_checks(bool display_failure)
     ahrs.get_NavEKF().getVariances(vel_variance, pos_variance, hgt_variance, mag_variance, tas_variance, offset);
     if (mag_variance.length() >= g.fs_ekf_thresh) {
         if (display_failure) {
-            //edit by huhui 
-			//gcs_send_text_P(SEVERITY_HIGH,PSTR("PreArm: EKF compass variance"));
+			gcs_send_text_P(SEVERITY_HIGH,PSTR("PreArm: EKF compass variance"));
         }
         return false;
     }

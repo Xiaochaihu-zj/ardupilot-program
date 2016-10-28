@@ -1034,7 +1034,7 @@ void GCS_MAVLINK::send_raw_imu(const AP_InertialSensor &ins, const Compass &comp
         mag.zero();
     }
 	
-    //edit by huhui 
+
     mavlink_msg_raw_imu_send(
         chan,
         hal.scheduler->micros(),
@@ -1044,9 +1044,9 @@ void GCS_MAVLINK::send_raw_imu(const AP_InertialSensor &ins, const Compass &comp
         gyro.x * 1000.0f,
         gyro.y * 1000.0f,
         gyro.z * 1000.0f,
-        11,//mag.x,   
-        11,//mag.y,
-        11);
+        mag.x,
+        mag.y,
+        mag.z);
 #if INS_MAX_INSTANCES > 1
     if (ins.get_gyro_count() <= 1 &&
         ins.get_accel_count() <= 1 &&

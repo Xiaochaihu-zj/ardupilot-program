@@ -3668,7 +3668,7 @@ void NavEKF::getAccelNED(Vector3f &accelNED) const {
 //edit by huhui
 void NavEKF::getVelNED(Vector3f &vel_ef) const
 {
-	vel_ef=mti_velocity_m_ef;
+	vel_ef=mti_velocity_m;
     //vel = state.velocity;
 }
 
@@ -5463,11 +5463,6 @@ void NavEKF::get_mti_accel_ef(Vector3f &mti_accel_ef)
 	Vector3f mti_accel_argue=_ahrs->get_ins().mti_accel;
 	convert_frame_bf_to_ef(mti_accel_argue,mti_accel_ef);
 	
-}
-
-void NavEKF::set_mti_vel_ef()
-{
-	convert_frame_bf_to_ef(mti_velocity_m_bf,mti_velocity_m_ef);
 }
 
 #endif // HAL_CPU_CLASS

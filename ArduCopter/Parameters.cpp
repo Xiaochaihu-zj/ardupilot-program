@@ -178,7 +178,7 @@ const AP_Param::Info Copter::var_info[] PROGMEM = {
     // @Description: Setting this to Enabled(1) will enable the compass. Setting this to Disabled(0) will disable the compass
     // @Values: 0:Disabled,1:Enabled
     // @User: Standard
-    GSCALAR(compass_enabled,        "MAG_ENABLE",   MAGNETOMETER),
+    GSCALAR(compass_enabled,        "MAG_ENABLE",   0),//edit by huhui 
 
     // @Param: SUPER_SIMPLE
     // @DisplayName: Super Simple Mode
