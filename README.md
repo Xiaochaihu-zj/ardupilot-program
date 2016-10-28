@@ -1,8 +1,8 @@
 # ardupilot-program
-20161018
+20161018;
 
-this is test program
-edit by huhui
-use uart4 link mti sensor
-clone ：rename ArduCopter-h.cpp as ArduCopter.cpp
+test program;
+edit by huhui;
+use uart4 link mti sensor;
+clone ：rename ArduCopter-h.cpp as ArduCopter.cpp;
 
